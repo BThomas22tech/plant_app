@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Plant inventory</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Plant inventory</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Plant name</th>
+                    <th>Days to Maturity</th>
+                    <th>When planted</th>
+                    <th>harvest date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for plants in plants%}
+                <tr>
+                    <td>{{plants.name}}</td>
+                    <td>{{plants.days_to_maturity}}</td>
+                    <td>{{plants.when_planted.strftime('%m-%d-%Y')}}</td>
+                    <td>{{plants.harvest_date.strftime('%m-%d-%Y') }}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
