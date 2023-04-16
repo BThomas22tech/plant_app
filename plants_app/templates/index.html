@@ -19,13 +19,15 @@
         </form>
     </nav>
     <div class="container">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Plant name</th>
+                    <th>Plant Name</th>
                     <th>Days to Maturity</th>
-                    <th>When planted</th>
-                    <th>harvest date</th>
+                    <th>When Planted</th>
+                    <th>Harvest Date</th>
+                    <th>Number of Packets</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -34,11 +36,15 @@
                     <td>{{plants.name}}</td>
                     <td>{{plants.days_to_maturity}}</td>
                     <td>{{plants.when_planted.strftime('%m-%d-%Y')}}</td>
-                    <td>{{plants.harvest_date.strftime('%m-%d-%Y') }}</td>
+                    <td>{{plants.date_to_harvest.strftime('%m-%d-%Y') }}</td>
+                    <td>{{plants.number_of_packets}}</td>
+                    <td><a href="/delete/{{plants.id}}">delete</a></td>
+                    <td><a href="/edit_plant/{{plants.id}}">Edit</a></td>
                 </tr>
                 {%endfor%}
             </tbody>
         </table>
+        <a href="/new_plant">+ add plant</a>
     </div>
 </body>
 
