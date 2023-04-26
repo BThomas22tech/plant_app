@@ -2,12 +2,13 @@ from plants_app import app
 from datetime import timedelta,datetime
 from plants_app.models.plants_model import Plants
 from flask import render_template,session, request,redirect,session,flash
-
+from flask import url_for
 @app.route('/')
 def show_plants():
     plants = Plants.get_all_plants()
     # for plant in plants:
     #     plant.harvest_date = plant.when_planted + timedelta(days=plant.days_to_maturity)
+    # image_file = url_for('static', filename="/hand_plant.jpg")
     return render_template("index.html", plants = plants)
 
 @app.route('/new_plant')

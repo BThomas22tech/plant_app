@@ -7,45 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Plant inventory</title>
+    <title>Plant inventory</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Plant inventory</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Plant Name</th>
-                    <th>Days to Maturity</th>
-                    <th>When Planted</th>
-                    <th>Harvest Date</th>
-                    <th>Number of Packets</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                {%for plants in plants%}
-                <tr>
-                    <td>{{plants.name}}</td>
-                    <td>{{plants.days_to_maturity}}</td>
-                    <td>{{plants.when_planted.strftime('%m-%d-%Y')}}</td>
-                    <td>{{plants.date_to_harvest.strftime('%m-%d-%Y') }}</td>
-                    <td>{{plants.number_of_packets}}</td>
-                    <td><a href="/delete/{{plants.id}}">delete</a></td>
-                    <td><a href="/edit_plant/{{plants.id}}">Edit</a></td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
-        <a href="/new_plant">+ add plant</a>
+<div class="container-fluid vh-100 bg-image"
+    style="background-image: url('/static/hand_plant.jpg'); background-size: 90%; background-position: center;">
+    <div>
+        <nav class="navbar navbar-light  justify-content-between">
+            <!-- <a class="navbar-brand">Plant inventory</a> -->
+        </nav>
+        <div class="container">
+            <h1>Plant inventory</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Plant Name</th>
+                        <th>Days to Maturity</th>
+                        <th>When Planted</th>
+                        <th>Harvest Date</th>
+                        <th>Number of Packets</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for plants in plants%}
+                    <tr>
+                        <td>{{plants.name}}</td>
+                        <td>{{plants.days_to_maturity}}</td>
+                        <td>{{plants.when_planted.strftime('%m-%d-%Y')}}</td>
+                        <td>{{plants.date_to_harvest.strftime('%m-%d-%Y') }}</td>
+                        <td>{{plants.number_of_packets}}</td>
+                        <td><a href="/delete/{{plants.id}}">delete</a></td>
+                        <td><a href="/edit_plant/{{plants.id}}">Edit</a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <a href="/new_plant">+ add plant</a>
+        </div>
     </div>
-</body>
+    </body>
 
 </html>
